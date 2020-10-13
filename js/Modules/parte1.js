@@ -46,8 +46,8 @@ export default{
         salida.innerHTML = tabla;
     },
     registrar: function(){
-        var alumno = document.getElementById("alumno");
-        var puntaje = document.getElementById("puntaje");
+        var alumno = document.getElementById("alumno").value;
+        var puntaje = document.getElementById("puntaje").value;
         var resultado = document.getElementById("resultado");
 
         if(alumno.Value == "" ||puntaje== ""){

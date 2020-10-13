@@ -1,5 +1,5 @@
 import parte1 from "./Modules/parte1.js";
-
+import parte2 from "./Modules/parte2.js";
 var caja = document.getElementById("caja");
 window.cargar = parte1.cargar;
 window.registrar = parte1.registrar.bind(parte1);
