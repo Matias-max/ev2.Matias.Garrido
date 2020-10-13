@@ -17,9 +17,6 @@ export default{
             <option value="$8"></option>
             <option value="$9"></option>
             <option value="$10"></option>
-
-            
-
         </select><br/>
         <button>registrar<button><br>
 
@@ -28,24 +25,24 @@ export default{
     `,
     cargar: function(){
         var salida= document.getElementById(salida);
-        var tabla = html`,
-        <table>: 
-
-        alumno<br/>
-
-        puntaje<br/>
-
-        resultado<br/>
-
-
-        </table>
-
-
-        
-        `,
-    
-
-}();
-
-tabla+= </table>
-salida
+        var tabla = `
+            <table>
+                <tr>
+                    <th>alumno</th>
+                    <th>puntaje</th>
+                    <th>resultado</th>
+                </tr>   
+        `;
+        this.puntajes.forEach((item) => {
+            tabla +=`
+                <tr>
+                    <th>${item.alumno}</th>
+                    <th>${item.puntaje}</th>
+                    <th>${item.resultado}</th>
+                </tr>
+        `
+        });
+        tabla += "</table>";
+        salida.innerHTML = tabla;
+    }
+}
