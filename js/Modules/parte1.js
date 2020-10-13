@@ -19,12 +19,12 @@ export default{
             <option value="10">10</option>
         </select><br/>
         <br/><br/><br/>
-        <button>registrar<button><br>
-        <div id="salida" div>
+        <button onclick="registrar()">registrar<button><br>
+        <div id="salida"></div>
 
     `,
     cargar: function(){
-        var salida= document.getElementById(salida);
+        var salida= document.getElementById("salida");
         var tabla = ` 
             <table>
                 <tr>
@@ -46,38 +46,34 @@ export default{
         salida.innerHTML = tabla;
     },
     registrar: function(){
-    var alumno = document.getElementById("alumno");
-    var puntaje = document.getElementById("puntaje");
-    var resultado = document.getElementById("resultado");
+        var alumno = document.getElementById("alumno");
+        var puntaje = document.getElementById("puntaje");
+        var resultado = document.getElementById("resultado");
 
-    if(alumno.Value == "" ||puntaje== "")
-    alert("vacio")
-
-    else{
-
-        if(alumno.Value == 0 && puntaje== 3)
-        alert("Malo")
-    else{
-        if(alumno.Value == 4 && puntaje== 7)
-        alert("Regular")
-        
-        else{
-            if(alumno.Value == 8 && puntaje== 9)
-            alert("Bueno")
-
-            else{
-                if(alumno.Value == 10)
-                alert("Master")
-
-            }
-
+        if(alumno.Value == "" ||puntaje== ""){
+            alert("vacio")
         }
 
-    
+        if(alumno.Value <= 0 && puntaje >= 3){
+            resultado="MALO";
+        }
+        if(alumno.Value <= 4 && puntaje >= 7){
+            resultado="REGULAR";
+        }
+        if(alumno.Value <= 8 && puntaje >= 9){
+            resultado="BUENO";
+        }
+
+        if(alumno.Value == 10){
+            resultado="MASTER";
+        }
+        var obj={
+        alumno:alumno.value,
+        puntaje:puntaje.value,
+        resultado:resultado.value,
+        };
+        this.puntajes.push(obj);
+        this.cargar();
 
     }
-
-    
 }
-
-
